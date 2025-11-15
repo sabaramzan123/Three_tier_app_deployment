@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AWS Three Tier Web Architecture Workshop
 
 ## Description: 
@@ -29,3 +30,7 @@ See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more inform
 
 This library is licensed under the MIT-0 License. See the LICENSE file.
 
+=======
+# Three_tier_app_deployment
+Deployed 3 tier application on AWS
+>>>>>>> 8e3184bfca24f5d481a63ad59619d09e857edef2
