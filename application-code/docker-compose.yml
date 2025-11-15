@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+
+  app-tier-backend:
+    image: 303713699681.dkr.ecr.us-east-1.amazonaws.com/app-tier-backend:latest
+    container_name: app-tier-backend
+    ports:
+      - "3001:3001"
+    environment:
+      DB_HOST: mydb.abcdefg123.us-east-1.rds.amazonaws.com
+      DB_USER: admin
+      DB_PASS: MySecret123
+      DB_NAME: transactions
+    restart: always
+
+  web-tier-app:
+    image: 303713699681.dkr.ecr.us-east-1.amazonaws.com/web-tier-app:latest
+    container_name: web-tier-app
+    ports:
+      - "80:3000"
+    environment:
+      REACT_APP_API_URL: http://localhost:3001
+    depends_on:
+      - app-tier-backend
+    command: sh -c "npm run build && npx serve -s build -l 3000"
+    restart: always
